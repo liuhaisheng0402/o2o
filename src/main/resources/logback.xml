@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
 	<!-- 定义参数常量 -->
 	<!-- TRACE<DEBUG<INFO<WARN<ERROR -->
@@ -6,7 +7,7 @@
 	<property name="log.maxHistory" value="30" />
 	<property name="log.filePath" value="${catalina.base}/logs/webapps" />
 	<property name="log.pattern"
-		value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thead] %-5level %logger{50} - %msg%n" />
+		value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n" />
 
 	<!-- 控制台设置 -->
 	<appender name="consoleAppener" class="ch.qos.logback.core.ConsoleAppender">
@@ -22,15 +23,15 @@
 		<file>${log.filePath}/debug.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- 文件名称 -->
-			<fileNamePattern>${log.filePath}/debug/debug.%d{yyy-MM-dd}.log.gz
-			</fileNamePattern>
+			<FileNamePattern>${log.filePath}/debug_%d{yyyy-MM-dd}.%i.log
+			</FileNamePattern>
 			<!-- 文件最大保存历史数量 -->
-			<MaxHitory>${log.maxHistory}</MaxHitory>
+			<maxHistory>${log.maxHistory}</maxHistory>
 		</rollingPolicy>
 		<encoder>
 			<pattern>${log.pattern}</pattern>
 		</encoder>
-		<filter class="ch.qos.logback.classis.filter.LevelFilter">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
 			<level>DEBUG</level>
 			<onMatch>ACCEPT</onMatch>
 			<onMismatch>DENY</onMismatch>
@@ -44,19 +45,51 @@
 		<file>${log.filePath}/info.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- 文件名称 -->
-			<fileNamePattern>${log.filePath}/info/info.%d{yyy-MM-dd}.log.gz
+			<fileNamePattern>${log.filePath}/info_%d{yyyy-MM-dd}.%i.log
 			</fileNamePattern>
 			<!-- 文件最大保存历史数量 -->
-			<MaxHitory>${log.maxHistory}</MaxHitory>
+			<maxHistory>${log.maxHistory}</maxHistory>
 		</rollingPolicy>
 		<encoder>
 			<pattern>${log.pattern}</pattern>
 		</encoder>
-		<filter class="ch.qos.logback.classis.filter.LevelFilter">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
 			<level>INFO</level>
 			<onMatch>ACCEPT</onMatch>
 			<onMismatch>DENY</onMismatch>
 		</filter>
 	</appender>
+	
+	<!-- ERROR -->
+	<appender name="errorAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- 文件路径 -->
+		<file>${log.filePath}/error.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- 文件名称 -->
+			<fileNamePattern>${log.filePath}/error_%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<!-- 文件最大保存历史数量 -->
+			<maxHistory>${log.maxHistory}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${log.pattern}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+	
+	<logger name="com.imooc" level="${log.level}" additivity="true">
+		<appender-ref ref="debugAppender" />
+		<appender-ref ref="infoAppender" />
+		<appender-ref ref="errorAppender" />
+	</logger>
+	
+	<root level="info">
+		<appender-ref ref="consoleAppener" />
+	</root>
 
 </configuration>
