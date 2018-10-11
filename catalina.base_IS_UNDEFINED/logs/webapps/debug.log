@@ -1,0 +1,9 @@
+2018-10-10 22:37:56.640 [main] DEBUG com.imooc.dao.ShopDao.insertShop - ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?, ?) 
+2018-10-10 22:37:56.676 [main] DEBUG com.imooc.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 1(Integer), 1(Long), 测试的店铺(String), test(String), test(String), test(String), test(String), null, 2018-10-10 22:37:56.17(Timestamp), null, 1(Integer), 审核中(String)
+2018-10-10 22:37:56.718 [main] DEBUG com.imooc.dao.ShopDao.insertShop - <==    Updates: 1
+2018-10-10 22:52:56.546 [main] DEBUG com.imooc.dao.ShopDao.updateShop - ==>  Preparing: UPDATE tb_shop SET shop_desc=?, shop_addr=?, last_edit_time=? WHERE shop_id = ? 
+2018-10-10 22:52:56.570 [main] DEBUG com.imooc.dao.ShopDao.updateShop - ==> Parameters: 测试描述(String), 测试地址(String), 2018-10-10 22:52:56.106(Timestamp), 1(Long)
+2018-10-10 22:52:56.612 [main] DEBUG com.imooc.dao.ShopDao.updateShop - <==    Updates: 1
+2018-10-10 22:56:42.636 [main] DEBUG com.imooc.dao.ShopDao.updateShop - ==>  Preparing: UPDATE tb_shop SET shop_desc=?, shop_addr=?, last_edit_time=? WHERE shop_id = ? 
+2018-10-10 22:56:42.667 [main] DEBUG com.imooc.dao.ShopDao.updateShop - ==> Parameters: 测试描述(String), 测试地址(String), 2018-10-10 22:56:42.184(Timestamp), 1(Long)
+2018-10-10 22:56:42.708 [main] DEBUG com.imooc.dao.ShopDao.updateShop - <==    Updates: 1

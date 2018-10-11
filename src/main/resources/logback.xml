@@ -23,7 +23,7 @@
 		<file>${log.filePath}/debug.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- 文件名称 -->
-			<FileNamePattern>${log.filePath}/debug_%d{yyyy-MM-dd}.%i.log
+			<FileNamePattern>${log.filePath}/debug/debug_%d{yyyy-MM-dd}.log.zip
 			</FileNamePattern>
 			<!-- 文件最大保存历史数量 -->
 			<maxHistory>${log.maxHistory}</maxHistory>
@@ -45,7 +45,7 @@
 		<file>${log.filePath}/info.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- 文件名称 -->
-			<fileNamePattern>${log.filePath}/info_%d{yyyy-MM-dd}.%i.log
+			<fileNamePattern>${log.filePath}/info/info_%d{yyyy-MM-dd}.log.zip
 			</fileNamePattern>
 			<!-- 文件最大保存历史数量 -->
 			<maxHistory>${log.maxHistory}</maxHistory>
@@ -67,7 +67,7 @@
 		<file>${log.filePath}/error.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- 文件名称 -->
-			<fileNamePattern>${log.filePath}/error_%d{yyyy-MM-dd}.%i.log
+			<fileNamePattern>${log.filePath}/error/error_%d{yyyy-MM-dd}.log.zip
 			</fileNamePattern>
 			<!-- 文件最大保存历史数量 -->
 			<maxHistory>${log.maxHistory}</maxHistory>
